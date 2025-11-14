@@ -4,6 +4,7 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../DividirCuentas" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../DividirCuentasV2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../app-lol" vcs="Git" />
   </component>
 </project>
