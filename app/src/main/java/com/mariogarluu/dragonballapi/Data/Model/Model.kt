@@ -9,17 +9,30 @@ data class CharacterResponse(
 )
 
 /**
- * Representa un único personaje de Dragon Ball.
+ * Representa un único personaje de Dragon Ball, incluyendo sus transformaciones.
  */
 data class Character(
     val id: Int,
     val name: String,
+    val ki: String,
+    val maxKi: String,
     val race: String,
+    val gender: String,
     val description: String,
     val image: String,
-    val ki: String,
-    val universe: Int,
-    val isTransformed: Boolean
+    val affiliation: String,
+    val originPlanet: Planet?,
+    val transformations: List<Transformation>
+)
+
+/**
+ * Representa una de las transformaciones de un personaje.
+ */
+data class Transformation(
+    val id: Int,
+    val name: String,
+    val image: String,
+    val ki: String
 )
 
 /**
@@ -39,7 +52,7 @@ data class Planet(
     val isDestroyed: Boolean,
     val description: String,
     val image: String,
-    val characters: List<Character>
+    val characters: List<Character>? = null // Puede ser nulo
 )
 
 /**

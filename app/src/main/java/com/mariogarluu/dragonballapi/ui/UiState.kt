@@ -2,6 +2,7 @@ package com.mariogarluu.dragonballapi.ui
 
 import com.mariogarluu.dragonballapi.Data.Model.Character
 import com.mariogarluu.dragonballapi.Data.Model.Planet
+import com.mariogarluu.dragonballapi.Data.Model.Transformation
 
 /**
  * Representa los posibles estados de la interfaz de usuario para la pantalla de la lista de personajes.
@@ -17,7 +18,22 @@ sealed class CharactersUiState {
  */
 sealed class CharacterUiState {
     object Loading : CharacterUiState()
-    data class Success(val character: Character) : CharacterUiState()
+    /**
+     * @param character El personaje completo con todas sus transformaciones.
+     * @param currentTransformation La transformación que se está mostrando (null si es la forma base).
+     * @param hasNextTransformation Indica si hay una transformación siguiente.
+     * @param hasPreviousTransformation Indica si hay una transformación anterior.
+     * @param hasNextCharacter Indica si hay un personaje siguiente en la lista.
+     * @param hasPreviousCharacter Indica si hay un personaje anterior en la lista.
+     */
+    data class Success(
+        val character: Character,
+        val currentTransformation: Transformation? = null,
+        val hasNextTransformation: Boolean,
+        val hasPreviousTransformation: Boolean,
+        val hasNextCharacter: Boolean,
+        val hasPreviousCharacter: Boolean
+    ) : CharacterUiState()
     data class Error(val message: String) : CharacterUiState()
 }
 
